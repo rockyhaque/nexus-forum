@@ -1,6 +1,7 @@
 const postCardContainer = document.getElementById("post-card-container");
+const markedContainer = document.getElementById("marked-container");
 
-const postDataFunc = async () => {
+const allPostDataFunc = async () => {
   const url = " https://openapi.programming-hero.com/api/retro-forum/posts";
   const res = await fetch(url);
   const data = await res.json();
@@ -10,14 +11,14 @@ const postDataFunc = async () => {
     const div = document.createElement("div");
     div.innerHTML = `
         <div>
-        <div
-          class="bg-white h-16 w-16 flex justify-center items-center rounded-md"
-        >
-        <img class="rounded-lg" src=${item.image} alt="">
-        </div>
-        <div class="relative bottom-20 left-12">
-          <div class="badge bg-${item.isActive ? 'green' : 'red'}-600 badge-sm relative"></div>
-        </div>
+            <div
+            class="bg-white h-16 w-16 flex justify-center items-center rounded-md"
+            >
+            <img class="rounded-lg" src=${item.image} alt="">
+            </div>
+            <div class="relative bottom-20 left-12">
+            <div class="badge bg-${item.isActive ? 'green' : 'red'}-600 badge-sm relative"></div>
+            </div>
       </div>
 
       <div class="w-11/12 rounded-2xl">
@@ -53,7 +54,7 @@ const postDataFunc = async () => {
               <p>${item.posted_time}</p>
             </div>
           </div>
-          <div class="cursor-pointer">
+          <div id="markAsRead" onclick="markAsRead('${item.title}', '${item.view_count}')" class="cursor-pointer">
             <img src="./assests/email 1.png" alt="email_logo" />
           </div>
         </div>
@@ -76,4 +77,24 @@ const postDataFunc = async () => {
   });
 };
 
-postDataFunc();
+function markAsRead(title, viewCount) {
+    console.log(`Title: ${title}`);
+    console.log(`View count: ${viewCount}`);
+    const div = document.createElement("div");
+    div.innerHTML=`
+
+    <div class="flex bg-white px-3 py-3 rounded-xl mt-4 mb-5 gap-3">
+        <h3 class="text-xl font-bold w-11/12">
+        ${title}
+        </h3>
+        <div class="flex gap-3 text-customGray">
+        <div><i class="fa-regular fa-eye"></i></div>
+        <p class="font-inter">${viewCount}</p>
+        </div>
+    </div>
+    `
+    markedContainer.appendChild(div)
+  }
+  
+
+allPostDataFunc();
