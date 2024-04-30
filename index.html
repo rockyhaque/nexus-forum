@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexus Forum</title>
+    <link rel="shortcut icon" href="./assests/n_logo.jpg" type="image/x-icon" />
+
+    <!-- Tailwind and Daisy UI cdn -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.10.2/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome Icon  -->
+    <script
+      src="https://kit.fontawesome.com/680c8cb7df.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Mulish font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom Design -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              outline: "#1DD10066",
+              black: "12132D",
+              lightishBlack: "#12132dcc",
+              gray: "#F3F3F5",
+              customGray: "#12132d99",
+              btnGray: "#03070D",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      .font-inter {
+        font-family: "Inter", sans-serif;
+      }
+      .font-mulish {
+        font-family: "Mulish", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="container mx-auto font-mulish mt-5">
+      <div class="navbar bg-base-100 flex justify-between">
+        <div class="">
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </div>
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <button
+                class="btn btn-circle btn-outline tooltip"
+                data-tip="Home"
+              >
+                <i class="fa-solid fa-house-fire"></i>
+              </button>
+              <button
+                class="btn btn-circle btn-outline tooltip"
+                data-tip="Edit"
+              >
+                <i class="fa-solid fa-file-pen"></i>
+              </button>
+              <button class="btn btn-circle btn-outline tooltip" data-tip="Add">
+                <i class="fa-solid fa-user-plus"></i>
+              </button>
+              <button
+                class="btn btn-circle btn-outline tooltip"
+                data-tip="Flag"
+              >
+                <i class="fa-regular fa-flag"></i>
+              </button>
+            </ul>
+          </div>
+          <a class="btn btn-ghost text-xl font-extrabold">Nexus Forum</a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1 gap-4">
+            <button class="btn btn-circle btn-outline tooltip" data-tip="Home">
+              <i class="fa-solid fa-house-fire"></i>
+            </button>
+            <button class="btn btn-circle btn-outline tooltip" data-tip="Edit">
+              <i class="fa-solid fa-file-pen"></i>
+            </button>
+            <button class="btn btn-circle btn-outline tooltip" data-tip="Add">
+              <i class="fa-solid fa-user-plus"></i>
+            </button>
+            <button class="btn btn-circle btn-outline tooltip" data-tip="Flag">
+              <i class="fa-regular fa-flag"></i>
+            </button>
+          </ul>
+          <div class="ml-4">
+            <a class="btn btn-info rounded-full px-8">Sign In</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container mx-auto">
+      <!-- Hero Banner -->
+      <section>
+        <div class="hero h-[500px] bg-[#12132D] rounded-2xl font-mulish">
+          <div
+            class="hero-overlay bg-cover bg-center bg-no-repeat rounded-2xl"
+            style="background-image: url(./assests/bgbanner.png)"
+          ></div>
+
+          <div
+            class="hero-content flex justify-center items-center gap-16 text-neutral-content"
+          >
+            <div class="max-w-md text-start">
+              <h1 class="mb-5 text-5xl font-bold">
+                Welcome to the <span class="text-cyan-400">Nexus</span> Forum
+              </h1>
+              <p class="mb-5">
+                Share your favorite opinion and win and wp <br />
+                forum coffee mug!
+              </p>
+              <label class="input input-bordered flex items-center gap-2">
+                <input
+                  type="text"
+                  class="grow"
+                  placeholder="Search here anything"
+                />
+                <span class="btn btn-sm badge-info px-3 py-0 font-bold"
+                  >Search</span
+                >
+              </label>
+            </div>
+            <div
+              class="bg-white rounded-2xl px-7 py-4 text-stone-700 text-xl space-y-4"
+            >
+              <div class="flex justify-between gap-6">
+                <p>Registered Users</p>
+                <p>01</p>
+              </div>
+              <div class="flex justify-between gap-6">
+                <p>Forum</p>
+                <p>01</p>
+              </div>
+              <div class="flex justify-between gap-6">
+                <p>Topics</p>
+                <p>01</p>
+              </div>
+              <div class="flex justify-between gap-6">
+                <p>Replies</p>
+                <p>01</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Let’s Discuss -->
+      <section class="mt-14">
+        <div class="flex flex-col justify-center items-center">
+          <h1 class="font-extrabold text-3xl font-mulish">Let’s Discuss</h1>
+          <p class=" text-center mt-3 font-inter text-customGray">
+            Yes, you can run unit tests and view the results directly within the
+            app. The integrated <br> testing features allow for a streamlined .
+          </p>
+        </div>
+
+        <!-- Functional discuss -->
+        <div class="flex gap-8 mt-10">
+          <!-- Card showing part -->
+          <div class="w-4/6">
+            <div class="flex gap-4 bg-gray px-8 py-6 rounded-xl">
+              <div>
+                <div
+                  class="bg-white h-16 w-16 flex justify-center items-center rounded-md"
+                >
+                  <i class="fa-regular fa-flag"></i>
+                </div>
+                <div class="relative bottom-16 left-12">
+                  <div class="badge bg-green-600 badge-sm relative"></div>
+                </div>
+              </div>
+
+              <div class="w-11/12 rounded-2xl">
+                <div
+                  class="flex gap-4 text-lightishBlack font-medium font-inter"
+                >
+                  <h2>#Music</h2>
+                  <h2>Author : Awlad Hossain</h2>
+                </div>
+                <div>
+                  <h1 class="text-xl font-bold font-mulish my-3">
+                    10 Kids Unaware of Their Halloween Costume
+                  </h1>
+                </div>
+                <div>
+                  <p class="text-customGray font-inter">
+                    It’s one thing to subject yourself to ha Halloween costume
+                    mishap because, hey that’s your prerogative
+                  </p>
+                </div>
+                <hr class="border-dashed text-slate-400 my-4 font-inter" />
+                <div class="flex justify-between">
+                  <div class="flex gap-10 text-customGray">
+                    <div class="flex items-center gap-3">
+                      <div><i class="fa-regular fa-comment-dots"></i></div>
+                      <p>546</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                      <div><i class="fa-regular fa-eye"></i></div>
+                      <p>546</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                      <div><i class="fa-regular fa-clock"></i></div>
+                      <p>546</p>
+                    </div>
+                  </div>
+                  <div class="cursor-pointer">
+                    <img src="./assests/email 1.png" alt="email_logo" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mark Read part -->
+          <div class="flex-1 font-mulish rounded-xl bg-gray px-7 py-6">
+            <div class="flex justify-between">
+              <p class="font-extrabold">Title</p>
+              <div class="flex justify-center items-center gap-3 mt-2">
+                <i class="fa-solid fa-check-double text-[#3DCE09]"></i>
+                <p class="text-customGray">Mark as read <span>(4)</span></p>
+              </div>
+            </div>
+            <div class="flex bg-white px-3 py-3 rounded-xl mt-4 mb-5">
+              <h3 class="text-xl font-bold">
+                10 Kids Unaware of Their Halloween Costume
+              </h3>
+              <div class="flex gap-3 text-customGray">
+                <div><i class="fa-regular fa-eye"></i></div>
+                <p class="font-inter">487</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>
