@@ -1,13 +1,35 @@
 const postCardContainer = document.getElementById("post-card-container");
 const markedContainer = document.getElementById("marked-container");
 const latestPostContainer = document.getElementById("latest-post-container");
+const searchField = document.getElementById("search-field");
+const searchBtn = document.getElementById("search-btn");
 
-const allPostDataFunc = async () => {
-  const url = "https://openapi.programming-hero.com/api/retro-forum/posts";
+
+// let urlAllPost = `https://openapi.programming-hero.com/api/retro-forum/posts`;
+
+const handleSearch = () => {
+  let searchValue = searchField.value;
+  
+  
+  if(searchValue){
+    
+    allPostDataFunc(searchValue)
+  } else{
+    alert("Please provide right keyword")
+  }
+}
+
+const allPostDataFunc = async (searchValue) => {
+
+  let url = `https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchValue}`;
+
   const res = await fetch(url);
   const data = await res.json();
 
   const postData = data.posts;
+
+  postCardContainer.innerHTML =''
+
   postData.forEach((item) => {
     const div = document.createElement("div");
     div.innerHTML = `
@@ -57,9 +79,7 @@ const allPostDataFunc = async () => {
               <p>${item.posted_time}</p>
             </div>
           </div>
-          <div id="markAsRead" onclick="markAsRead('${item.title}', '${
-      item.view_count
-    }')" class="cursor-pointer">
+          <div id="markAsRead" onclick="markAsRead('${item.title}', '${item.view_count}')"class="cursor-pointer">
             <img src="./assests/email 1.png" alt="email_logo" />
           </div>
         </div>
@@ -81,6 +101,9 @@ const allPostDataFunc = async () => {
     postCardContainer.appendChild(div);
   });
 };
+
+
+
 
 function markAsRead(title, viewCount) {
   const div = document.createElement("div");
@@ -137,5 +160,8 @@ const latestPostFunc = async () => {
   })
 }
 
-allPostDataFunc();
+
+
+
+allPostDataFunc("Comedy");
 latestPostFunc();
