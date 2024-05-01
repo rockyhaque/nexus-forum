@@ -37,6 +37,7 @@ const allPostDataFunc = async (searchValue) => {
 
   postData.forEach((item) => {
     // loading.classList.add("block")
+    
     const div = document.createElement("div");
     div.innerHTML = `
         <div>
