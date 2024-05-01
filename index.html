@@ -135,7 +135,7 @@
       </div>
     </header>
 
-    <main class="container mx-auto">
+    <main class="container mx-auto px-2 md:px-0 lg:px-0">
       <!-- Hero Banner -->
       <section class="">
         <div class="hero h-[500px] bg-[#12132D] rounded-2xl font-mulish">
@@ -145,7 +145,7 @@
           ></div>
 
           <div
-            class="hero-content flex justify-center items-center gap-16 text-neutral-content"
+            class="hero-content flex flex-col md:flex-row lg:flex-row justify-center items-center gap-2 md:gap-16 lg:gap-16 text-neutral-content"
           >
             <div class="max-w-md text-start">
               <h1 class="mb-5 text-5xl font-bold">
@@ -190,6 +190,7 @@
           </div>
         </div>
       </section>
+      
 
       <!-- Let’s Discuss -->
       <section class="mt-14 ">
@@ -203,66 +204,13 @@
         </div>
 
         <!-- Functional discuss -->
-        <div class="flex gap-8 mt-10">
+        <div class="flex flex-col md:flex-row lg:flex-row gap-8 mt-10">
           <!-- Card showing part -->
-          <div id="post-card-container" class="w-4/6">
-            <!-- <div class="flex gap-4 bg-gray px-8 py-6 rounded-xl">
-              <div>
-                <div
-                  class="bg-white h-16 w-16 flex justify-center items-center rounded-md"
-                >
-                  <i class="fa-regular fa-flag"></i>
-                </div>
-                <div class="relative bottom-16 left-12">
-                  <div class="badge bg-green-600 badge-sm relative"></div>
-                </div>
-              </div>
-
-              <div class="w-11/12 rounded-2xl">
-                <div
-                  class="flex gap-4 text-lightishBlack font-medium font-inter"
-                >
-                  <h2>#Music</h2>
-                  <h2>Author : Awlad Hossain</h2>
-                </div>
-                <div>
-                  <h1 class="text-xl font-bold font-mulish my-3">
-                    10 Kids Unaware of Their Halloween Costume
-                  </h1>
-                </div>
-                <div>
-                  <p class="text-customGray font-inter">
-                    It’s one thing to subject yourself to ha Halloween costume
-                    mishap because, hey that’s your prerogative
-                  </p>
-                </div>
-                <hr class="border-dashed text-slate-400 my-4 font-inter" />
-                <div class="flex justify-between">
-                  <div class="flex gap-10 text-customGray">
-                    <div class="flex items-center gap-3">
-                      <div><i class="fa-regular fa-comment-dots"></i></div>
-                      <p>546</p>
-                    </div>
-                    <div class="flex items-center gap-3">
-                      <div><i class="fa-regular fa-eye"></i></div>
-                      <p>546</p>
-                    </div>
-                    <div class="flex items-center gap-3">
-                      <div><i class="fa-regular fa-clock"></i></div>
-                      <p>546</p>
-                    </div>
-                  </div>
-                  <div class="cursor-pointer">
-                    <img src="./assests/email 1.png" alt="email_logo" />
-                  </div>
-                </div>
-              </div>
-            </div> -->
+          <div id="post-card-container" class="w-full md:w-4/6 lg:w-4/6">
+            <!-- Dynamic cards -->
           </div>
 
-          <!-- <div id="loading" class="w-full hidden">
-            <span className="loading loading-dots loading-lg"></span>
-          </div> -->
+          
 
           <!-- Mark Read part -->
           <div
@@ -276,25 +224,17 @@
                 <p class="text-customGray">Mark as read (<span id="mark-count">0</span>)</p>
               </div>
             </div>
-            <!-- <div class="flex bg-white px-3 py-3 rounded-xl mt-4 mb-5">
-              <h3 class="text-xl font-bold">
-                10 Kids Unaware of Their Halloween Costume
-              </h3>
-              <div class="flex gap-3 text-customGray">
-                <div><i class="fa-regular fa-eye"></i></div>
-                <p class="font-inter">487</p>
-              </div>
-            </div> -->
+            <!-- Dynamic div -->
           </div>
         </div>
       </section>
 
       <!-- Join forum  -->
-      <section class="hidden">
+      <section class="">
         <div
-          class="hero bg-[#12132D] flex justify-around rounded-2xl py-8 font-mulish"
+          class="hero bg-[#12132D] flex flex-col md:flex-row lg:flex-row justify-around rounded-2xl py-8 font-mulish"
         >
-          <div class="">
+          <div class="ml-6 md:ml-0 lg:ml-0">
             <div class="space-y-4">
               <h1 class="text-3xl font-bold text-white">Join Our Forum</h1>
               <p class="text-stone-400">
@@ -314,7 +254,7 @@
       </section>
 
       <!-- Latest post -->
-      <section class="font-mulish hidden">
+      <section class="font-mulish ">
         <div class="mt-12">
           <div class="flex flex-col justify-center items-center">
             <h1 class="font-extrabold text-3xl font-mulish">Latest Posts</h1>
@@ -327,7 +267,7 @@
         </div>
 
         <!-- latest post container -->
-        <div id="latest-post-container" class="grid grid-cols-3 gap-6 mt-12">
+        <div id="latest-post-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-6 mt-12">
           <!-- <div class="card bg-base-100 shadow-xl border-2 border-stone-200">
             <figure class="px-10 pt-10">
               <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="card_img" class="rounded-xl h-44"/>
@@ -356,7 +296,9 @@
       </section>
     </main>
 
-    <footer>
+
+
+    <footer class="">
       <div class="footer footer-center p-10 bg-gray font-mulish mt-12">
         <aside>
           <h1 class="text-3xl font-bold">Nexus</h1>

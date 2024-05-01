@@ -71,7 +71,7 @@ const allPostDataFunc = async (searchValue) => {
         </div>
         <hr class="border-dashed text-slate-400 my-4 font-inter" />
         <div class="flex justify-between">
-          <div class="flex gap-10 text-customGray text-xl">
+          <div class="flex gap-2 md:gap-10 lg:gap-10 text-customGray text-xl">
             <div class="flex items-center gap-3">
               <div><i class="fa-regular fa-comment-dots"></i></div>
               <p>${item.comment_count}</p>
@@ -112,11 +112,6 @@ const allPostDataFunc = async (searchValue) => {
 
 
 function markAsRead(title, viewCount) {
-  
-  // let getMarkCount = markCount.innerText;
-  // let updateCount = parseInt(initMarkCount + 1);
-  // getMarkCount.innerText = updateCount
-  // console.log(getMarkCount);
 
   initMarkCount += 1;
   setInnerText("mark-count", initMarkCount);
