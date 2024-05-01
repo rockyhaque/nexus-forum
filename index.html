@@ -260,6 +260,10 @@
             </div> -->
           </div>
 
+          <!-- <div id="loading" class="w-full hidden">
+            <span className="loading loading-dots loading-lg"></span>
+          </div> -->
+
           <!-- Mark Read part -->
           <div
             id="marked-container"
@@ -269,7 +273,7 @@
               <p class="font-extrabold">Title</p>
               <div class="flex justify-center items-center gap-3 mt-2">
                 <i class="fa-solid fa-check-double text-[#3DCE09]"></i>
-                <p class="text-customGray">Mark as read <span>(4)</span></p>
+                <p class="text-customGray">Mark as read (<span id="mark-count">0</span>)</p>
               </div>
             </div>
             <!-- <div class="flex bg-white px-3 py-3 rounded-xl mt-4 mb-5">
@@ -375,5 +379,6 @@
     </footer>
 
     <script src="./app.js"></script>
+    <script src="./utility.js"></script>
   </body>
 </html>

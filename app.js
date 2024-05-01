@@ -3,6 +3,9 @@ const markedContainer = document.getElementById("marked-container");
 const latestPostContainer = document.getElementById("latest-post-container");
 const searchField = document.getElementById("search-field");
 const searchBtn = document.getElementById("search-btn");
+const loading = document.getElementById("loading");
+let markCount = document.getElementById("mark-count");
+let initMarkCount = 0;
 
 
 // let urlAllPost = `https://openapi.programming-hero.com/api/retro-forum/posts`;
@@ -21,6 +24,8 @@ const handleSearch = () => {
 
 const allPostDataFunc = async (searchValue) => {
 
+  // loading.classList.remove("hidden")
+
   let url = `https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchValue}`;
 
   const res = await fetch(url);
@@ -31,6 +36,7 @@ const allPostDataFunc = async (searchValue) => {
   postCardContainer.innerHTML =''
 
   postData.forEach((item) => {
+    // loading.classList.add("block")
     const div = document.createElement("div");
     div.innerHTML = `
         <div>
@@ -106,8 +112,19 @@ const allPostDataFunc = async (searchValue) => {
 
 
 function markAsRead(title, viewCount) {
+  
+  // let getMarkCount = markCount.innerText;
+  // let updateCount = parseInt(initMarkCount + 1);
+  // getMarkCount.innerText = updateCount
+  // console.log(getMarkCount);
+
+  initMarkCount += 1;
+  setInnerText("mark-count", initMarkCount);
+  
+
   const div = document.createElement("div");
   div.innerHTML = `
+    
 
     <div class="flex bg-white px-3 py-3 rounded-xl mt-4 mb-5 gap-3">
         <h3 class="text-xl font-bold w-11/12">
