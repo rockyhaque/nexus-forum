@@ -1,8 +1,9 @@
 const postCardContainer = document.getElementById("post-card-container");
 const markedContainer = document.getElementById("marked-container");
+const latestPostContainer = document.getElementById("latest-post-container");
 
 const allPostDataFunc = async () => {
-  const url = " https://openapi.programming-hero.com/api/retro-forum/posts";
+  const url = "https://openapi.programming-hero.com/api/retro-forum/posts";
   const res = await fetch(url);
   const data = await res.json();
 
@@ -17,7 +18,9 @@ const allPostDataFunc = async () => {
             <img class="rounded-lg" src=${item.image} alt="">
             </div>
             <div class="relative bottom-20 left-12">
-            <div class="badge bg-${item.isActive ? 'green' : 'red'}-600 badge-sm relative"></div>
+            <div class="badge bg-${
+              item.isActive ? "green" : "red"
+            }-600 badge-sm relative"></div>
             </div>
       </div>
 
@@ -54,7 +57,9 @@ const allPostDataFunc = async () => {
               <p>${item.posted_time}</p>
             </div>
           </div>
-          <div id="markAsRead" onclick="markAsRead('${item.title}', '${item.view_count}')" class="cursor-pointer">
+          <div id="markAsRead" onclick="markAsRead('${item.title}', '${
+      item.view_count
+    }')" class="cursor-pointer">
             <img src="./assests/email 1.png" alt="email_logo" />
           </div>
         </div>
@@ -78,10 +83,8 @@ const allPostDataFunc = async () => {
 };
 
 function markAsRead(title, viewCount) {
-    console.log(`Title: ${title}`);
-    console.log(`View count: ${viewCount}`);
-    const div = document.createElement("div");
-    div.innerHTML=`
+  const div = document.createElement("div");
+  div.innerHTML = `
 
     <div class="flex bg-white px-3 py-3 rounded-xl mt-4 mb-5 gap-3">
         <h3 class="text-xl font-bold w-11/12">
@@ -92,9 +95,47 @@ function markAsRead(title, viewCount) {
         <p class="font-inter">${viewCount}</p>
         </div>
     </div>
-    `
-    markedContainer.appendChild(div)
-  }
+    `;
+  markedContainer.appendChild(div);
+}
+
+const latestPostFunc = async () => {
+  const url = "https://openapi.programming-hero.com/api/retro-forum/latest-posts";
+  const res = await fetch(url);
+  const data = await res.json();
   
+  data.forEach((item) => {
+    const div = document.createElement("div");
+    div.innerHTML = `
+    <div class="px-10 bg-base-100 shadow-xl rounded-2xl border-2 border-stone-200">
+      <div class="pt-10 w-full">
+        <img src=${item.cover_image} alt="card_img" class="rounded-xl min-w-full "/>
+      </div>
+      <div class="pb-10 h-72">
+        <div class="flex gap-3 mt-4">
+          <div><i class="fa-regular fa-calendar"></i></div>
+          <p class="text-customGray ">${item?.author?.posted_date ? item?.author?.posted_date : "No publish date"}</p>
+        </div>
+        <h2 class="font-bold text-xl my-4">${item.title}</h2>
+        <p class="text-customGray">${item.description}</p>
+        <div class="flex gap-4 mt-4">
+          <div class="avatar">
+            <div class="w-12 rounded-full">
+              <img class="" src=${item.profile_image} />
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold">${item?.author?.name}</h3>
+            <p class="text-customGray">${item?.author?.designation ? item?.author?.designation : "Unknown"}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    `
+    // div.classList.add();
+    latestPostContainer.appendChild(div)
+  })
+}
 
 allPostDataFunc();
+latestPostFunc();
